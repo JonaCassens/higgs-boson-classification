@@ -1,0 +1,11 @@
+learning_rate: 0.01
+batch_size: 512
+epochs: 10
+hidden_layers:
+  - units: 64
+    activation: relu
+output_layer:
+  units: 1
+  activation: sigmoid
+optimizer: adam
+loss_function: binary_crossentropy
