@@ -6,6 +6,8 @@ Machine learning-based search for Higgs boson events using binary and multiclass
 
 ```
 higgs-boson-classification/
+├── README.md                               # Project documentation
+├── requirements.txt                        # Python dependencies
 ├── MResFindingTheHiggsAssignment.ipynb     # Original assignment specification
 ├── src/
 │   ├── data/
@@ -17,18 +19,14 @@ higgs-boson-classification/
 │       ├── random_forest.py                # Random Forest classifier
 │       └── neural_network.py               # PyTorch neural network
 ├── notebooks/
-│   ├── analysis.ipynb                      # Concise summary of complete analysis
+│   ├── analysis.ipynb                      # Written summary of complete analysis
 │   ├── exploratory_data_analysis.ipynb     # EDA of Higgs dataset
 │   ├── binary_classification.ipynb         # Binary classification experiments
 │   └── multiclass_classification.ipynb     # Multiclass classification experiments
-├── configs/
-│   ├── xgboost_config.yaml                 # XGBoost hyperparameters
-│   ├── nn_config.yaml                      # Neural network architecture
-│   └── rf_config.yaml                      # Random Forest parameters
-├── .github/
-│   └── copilot-instructions.md             # AI coding assistant guidelines
-├── .gitignore                              # Git ignore rules
-└── requirements.txt                        # Python dependencies
+└── configs/
+    ├── xgboost_config.yaml                 # XGBoost hyperparameters
+    ├── nn_config.yaml                      # Neural network architecture
+    └── rf_config.yaml                      # Random Forest parameters
 ```
 
 ## Installation
@@ -38,17 +36,26 @@ cd higgs-boson-classification
 pip install -r requirements.txt
 ```
 
+## Acknowledgements
+
+AI assistance used for:
+- Formatting tables and data for visual clarity
+- Markdown cells and headers for clearer separation of sections
+- Setting up workspace structure (configs, notebooks, src directories)
+- Initial README documentation
+- requirements.txt generation
+
+
 ## Quick Start
 
-### Option 1: Run Complete Analysis
+### Option 1: Read Project Summary
 
-Open and run `notebooks/analysis.ipynb` for a concise, end-to-end analysis:
+Open `notebooks/analysis.ipynb` for a written summary of the complete project:
 
-1. Loads Higgs boson data (Z, ggH, VBF processes across et, mt, tt channels)
-2. Trains multiclass XGBoost classifiers per channel
-3. Creates optimised 2D histograms
-4. Runs binned likelihood fits
-5. Compares results against CMS benchmarks
+- Overview of exploratory data analysis, binary and multiclass classification approaches
+- Explanation of methods: data cleaning, model training, probability binning, likelihood fitting
+- Summary of results and performance across all notebooks
+- No code execution required - just a narrative walkthrough of the analysis
 
 ### Option 2: Detailed Exploration
 
@@ -79,7 +86,7 @@ Optimise a Higgs boson search by creating ML-based bins that provide the most pr
 - Create 2D histograms using multiclass probabilities:
   - x-axis: P(ggH) / [P(ggH) + P(VBF)] — separates production modes
   - y-axis: P(ggH) + P(VBF) — separates signal from background
-- Optimised binning: 4×15 grid (60 bins) favouring S/B discrimination
+- Optimised binning: 4×15 grid (60 bins total)
 - Combine histograms across channels for final likelihood fit
 - Provides superior separation for measuring independent signal strengths
 
@@ -96,12 +103,7 @@ Dataset from CMS H→ττ analysis:
 - **Processes**: Z (background), ggH (signal), VBF (signal)
 - **Features**: 27 kinematic variables (pt, eta, mass, etc.)
 
-## Notebooks
 
-1. **`main_analysis.ipynb`** - Concise summary of complete analysis (recommended starting point)
-2. `exploratory_data_analysis.ipynb` - Data exploration and visualisation
-3. `binary_classification.ipynb` - Binary classification (signal vs background)
-4. `multiclass_classification.ipynb` - Multiclass classification with binning optimisation
 
 ## Configuration
 
@@ -113,15 +115,14 @@ Hyperparameters can be adjusted in YAML files in `configs/`:
 
 ## Results
 
-Expected improvements over classical methods:
+Precision achieved on signal strength measurements (lower is better):
 
 | Method | μ (%) | μ_ggH (%) | μ_VBF (%) |
-|--------|-------|-----------|-----------|
-| Classical (m_vis) | ~10 | ~57 | ~490 |
-| Classical (Optimised) | ~8 | ~12 | ~35 |
-| Binary ML | ~6-8 | ~10-12 | ~20-30 |
-| Multiclass ML | ~6 | ~9 | ~18 |
-| **CMS Published** | **6** | **9** | **18** |
+|--------|-------|-----------|-----------|  
+| **CMS Published** | **6.0** | **9.0** | **18.0** |
+| Multiclass XGBoost | 5.78 | 8.47 | 17.22 |
+
+The multiclass approach with per-channel XGBoost models meets all CMS precision benchmarks.
 
 ## Key Features
 
