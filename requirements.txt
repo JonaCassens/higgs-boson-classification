@@ -1,0 +1,19 @@
+# Core data science packages
+numpy
+pandas
+
+# Machine learning frameworks
+scikit-learn
+xgboost
+torch
+
+# Visualisation
+matplotlib
+seaborn
+mplhep
+
+# Optimisation and statistics
+iminuit
+
+# Configuration
+pyyaml
